@@ -23,10 +23,13 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
+     <item row="0" column="0" alignment="Qt::AlignRight">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>IP address</string>
+        <string>IP address:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
