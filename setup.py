@@ -15,10 +15,10 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'Ktransfer2600=sweepVlist.__main__:main'
+            'Ktransfer2600=Ktransfer2600.__main__:main'
         ],
         'gui_scripts': [
-            'Ktransfer2600_gui=sweepVlist.__main__:main'
+            'Ktransfer2600_gui=Ktransfer2600.__main__:main'
         ]
     },
     install_requires=[
