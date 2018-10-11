@@ -8,15 +8,18 @@ Created on Tue Feb 20 15:01:18 2018
 
 # system imports
 from __future__ import division, print_function, absolute_import
+import sys
 import os
 from visa import InvalidSession
 from qtpy import QtGui, QtCore, QtWidgets, uic
 from matplotlib.figure import Figure
 from Keithley2600 import TransistorSweepData
+from Keithley2600 import Keithley2600
+from qtpy import QtCore, QtWidgets, QtGui
 
 # local imports
-from utils.led_indicator_widget import LedIndicator
-from config.main import CONF
+from Ktransfer2600.utils.led_indicator_widget import LedIndicator
+from Ktransfer2600.config.main import CONF
 
 from matplotlib.backends.backend_qt5agg import (FigureCanvasQTAgg
                                                 as FigureCanvas)
@@ -520,3 +523,17 @@ class MeasureThread(QtCore.QThread):
                                                         self.params['VdStop'], self.params['VdStep'], self.params['VgList'],
                                                         self.params['tInt'], self.params['delay'], self.params['pulsed'])
             self.finishedSig.emit(sweepData)
+
+
+def main():
+    DARK = CONF.get('main', 'DARK')
+    KEITHLEY_ADDRESS = CONF.get('Keithley', 'KEITHLEY_ADDRESS')
+    keithley = Keithley2600(keithley_address=KEITHLEY_ADDRESS)
+    application = QtWidgets.QApplication(sys.argv)
+    keithleyGUI = KeithleyGuiApp(keithley)
+    desktop = QtWidgets.QDesktopWidget().availableGeometry()
+    width = (desktop.width() - keithleyGUI.width()) / 2
+    height = (desktop.height() - keithleyGUI.height()) / 2
+    keithleyGUI.show()
+    keithleyGUI.move(width, height)
+    sys.exit(application.exec_())

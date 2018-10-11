@@ -13,8 +13,8 @@ quickly load a user config file
 import getpass
 
 # Local import
-from config.base import SUBFOLDER
-from config.user import UserConfig
+from Ktransfer2600.config.base import SUBFOLDER
+from Ktransfer2600.config.user import UserConfig
 
 # =============================================================================
 #  Defaults

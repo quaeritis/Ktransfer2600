@@ -13,12 +13,12 @@ import re
 import shutil
 import time
 import codecs
-from utils.py3compat import configparser as cp
+from Ktransfer2600.utils.py3compat import configparser as cp
 from spyder.py3compat import PY2, is_text_string, to_text_string
 from distutils.version import LooseVersion
 
 # Local imports
-from config.base import (get_conf_path, get_home_dir,
+from Ktransfer2600.config.base import (get_conf_path, get_home_dir,
                          get_module_source_path)
 
 
