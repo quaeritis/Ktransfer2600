@@ -22,11 +22,17 @@ setup(
         ]
     },
     install_requires=[
-        'qtpy',
+        'QtPy',
         'Keithley2600',
         'matplotlib',
         'pyvisa',
         'setuptools'
+        'Pygments',
+        'QDarkStyle',
+        'ipython',
+        'ipykernel',
+        'repr',
+        'spyder'
     ],
     zip_safe=False,
     keywords='Ktransfer2600',

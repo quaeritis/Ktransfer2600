@@ -5,23 +5,7 @@ A high-level user interface for Keithley 2600 series instruments which allows th
 *Required*:
 
 - Linux or macOS
-- Python 2.7 or 3.x
-- Python dependencies
-
-*Python modules*:
-- PyQT4 or PyQt5 (PyQt 5 preferred)
-- IPython
-- decorator
-- email
-- Keithley2600
-- lmfit
-- matplotlib
-- numpy
-- pyvisa
-- pyvisa-py
-- qdarkstyle
-- qtpy
-- scipy
+- Python 3.x
 
 ## Acknowledgements
 Config file modules are based on the implementation from [Spyder](https://github.com/spyder-ide).
