@@ -22,6 +22,11 @@ setup(
         ]
     },
     install_requires=[
+        'qtpy',
+        'Keithley2600',
+        'matplotlib',
+        'pyvisa',
+        'setuptools'
     ],
     zip_safe=False,
     keywords='Ktransfer2600',

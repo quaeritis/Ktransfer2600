@@ -15,10 +15,11 @@ from qtpy import QtGui, QtCore, QtWidgets, uic
 from matplotlib.figure import Figure
 from Keithley2600 import TransistorSweepData
 from Keithley2600 import Keithley2600
-from qtpy import QtCore, QtWidgets, QtGui
+
 
 # local imports
 from Ktransfer2600.utils.led_indicator_widget import LedIndicator
+from Ktransfer2600.utils import dark_style
 from Ktransfer2600.config.main import CONF
 
 from matplotlib.backends.backend_qt5agg import (FigureCanvasQTAgg
@@ -526,9 +527,8 @@ class MeasureThread(QtCore.QThread):
 
 
 def main():
-    DARK = CONF.get('main', 'DARK')
     KEITHLEY_ADDRESS = CONF.get('Keithley', 'KEITHLEY_ADDRESS')
-    keithley = Keithley2600(keithley_address=KEITHLEY_ADDRESS)
+    keithley = Keithley2600(KEITHLEY_ADDRESS)
     application = QtWidgets.QApplication(sys.argv)
     keithleyGUI = KeithleyGuiApp(keithley)
     desktop = QtWidgets.QDesktopWidget().availableGeometry()
