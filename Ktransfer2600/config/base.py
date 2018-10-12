@@ -17,7 +17,7 @@ import sys
 # Configuration paths
 # =============================================================================
 
-SUBFOLDER = '.CustomXepr'
+SUBFOLDER = '.Ktransfer2600'
 
 
 def get_home_dir():
@@ -116,12 +116,12 @@ def get_module_source_path(modname, basename=None):
 # =============================================================================
 # Reset config files
 # =============================================================================
-SAVED_CONFIG_FILES = ('CustomXepr')
+SAVED_CONFIG_FILES = ('Ktransfer2600')
 
 
 def reset_config_files():
     """Remove all config files"""
-    print("*** Reset CustomXepr settings to defaults ***")
+    print("*** Reset Ktransfer2600 settings to defaults ***")
     for fname in SAVED_CONFIG_FILES:
         cfg_fname = get_conf_path(fname)
         if osp.isfile(cfg_fname) or osp.islink(cfg_fname):

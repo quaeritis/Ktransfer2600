@@ -332,57 +332,57 @@ class KeithleyGuiApp(QtWidgets.QMainWindow):
         """Saves current settings from GUI as defaults."""
 
         # save transfer settings
-        CONF.set('Keithley', 'VgStart', float(self.lineEditVgStart.text()))
-        CONF.set('Keithley', 'VgStop', float(self.lineEditVgStop.text()))
-        CONF.set('Keithley', 'VgStep', float(self.lineEditVgStep.text()))
+        CONF.set('Ktransfer2600', 'VgStart', float(self.lineEditVgStart.text()))
+        CONF.set('Ktransfer2600', 'VgStop', float(self.lineEditVgStop.text()))
+        CONF.set('Ktransfer2600', 'VgStep', float(self.lineEditVgStep.text()))
 
         VdListString = self.lineEditVdList.text()
         VdStringList = VdListString.split(',')
-        CONF.set('Keithley', 'VdList', [self._convert_to_Vd(x) for x in VdStringList])
+        CONF.set('Ktransfer2600', 'VdList', [self._convert_to_Vd(x) for x in VdStringList])
 
         # save output settings
-        CONF.set('Keithley', 'VdStart', float(self.lineEditVdStart.text()))
-        CONF.set('Keithley', 'VdStop', float(self.lineEditVdStop.text()))
-        CONF.set('Keithley', 'VdStep', float(self.lineEditVdStep.text()))
+        CONF.set('Ktransfer2600', 'VdStart', float(self.lineEditVdStart.text()))
+        CONF.set('Ktransfer2600', 'VdStop', float(self.lineEditVdStop.text()))
+        CONF.set('Ktransfer2600', 'VdStep', float(self.lineEditVdStep.text()))
 
         VgListString = self.lineEditVgList.text()
         VgStringList = VgListString.split(',')
-        CONF.set('Keithley', 'VgList', [float(x) for x in VgStringList])
+        CONF.set('Ktransfer2600', 'VgList', [float(x) for x in VgStringList])
 
         # save general settings
-        CONF.set('Keithley', 'tInt', float(self.lineEditInt.text()))
-        CONF.set('Keithley', 'delay', float(self.lineEditSettling.text()))
+        CONF.set('Ktransfer2600', 'tInt', float(self.lineEditInt.text()))
+        CONF.set('Ktransfer2600', 'delay', float(self.lineEditSettling.text()))
 
         # get combo box status
         if self.comboBoxSweepType.currentIndex() == 0:
-            CONF.set('Keithley', 'pulsed', False)
+            CONF.set('Ktransfer2600', 'pulsed', False)
         elif self.comboBoxSweepType.currentIndex() == 1:
-            CONF.set('Keithley', 'pulsed', True)
+            CONF.set('Ktransfer2600', 'pulsed', True)
 
-        CONF.set('Keithley', 'gate', self.comboBoxGateSMU.currentText())
-        CONF.set('Keithley', 'drain', self.comboBoxDrainSMU.currentText())
+        CONF.set('Ktransfer2600', 'gate', self.comboBoxGateSMU.currentText())
+        CONF.set('Ktransfer2600', 'drain', self.comboBoxDrainSMU.currentText())
 
     def _on_load_default(self):
         """Load default settings to interface."""
 
         ## set text box contents
         # transfer curve settings
-        self.lineEditVgStart.setText(str(CONF.get('Keithley', 'VgStart')))
-        self.lineEditVgStop.setText(str(CONF.get('Keithley', 'VgStop')))
-        self.lineEditVgStep.setText(str(CONF.get('Keithley', 'VgStep')))
-        self.lineEditVdList.setText(str(CONF.get('Keithley', 'VdList')).strip('[]'))
+        self.lineEditVgStart.setText(str(CONF.get('Ktransfer2600', 'VgStart')))
+        self.lineEditVgStop.setText(str(CONF.get('Ktransfer2600', 'VgStop')))
+        self.lineEditVgStep.setText(str(CONF.get('Ktransfer2600', 'VgStep')))
+        self.lineEditVdList.setText(str(CONF.get('Ktransfer2600', 'VdList')).strip('[]'))
         # output curve settings
-        self.lineEditVdStart.setText(str(CONF.get('Keithley', 'VdStart')))
-        self.lineEditVdStop.setText(str(CONF.get('Keithley', 'VdStop')))
-        self.lineEditVdStep.setText(str(CONF.get('Keithley', 'VdStep')))
-        self.lineEditVgList.setText(str(CONF.get('Keithley', 'VgList')).strip('[]'))
+        self.lineEditVdStart.setText(str(CONF.get('Ktransfer2600', 'VdStart')))
+        self.lineEditVdStop.setText(str(CONF.get('Ktransfer2600', 'VdStop')))
+        self.lineEditVdStep.setText(str(CONF.get('Ktransfer2600', 'VdStep')))
+        self.lineEditVgList.setText(str(CONF.get('Ktransfer2600', 'VgList')).strip('[]'))
 
         # other
-        self.lineEditInt.setText(str(CONF.get('Keithley', 'tInt')))
-        self.lineEditSettling.setText(str(CONF.get('Keithley', 'delay')))
+        self.lineEditInt.setText(str(CONF.get('Ktransfer2600', 'tInt')))
+        self.lineEditSettling.setText(str(CONF.get('Ktransfer2600', 'delay')))
 
         # set PULSED comboBox status
-        pulsed = CONF.get('Keithley', 'pulsed')
+        pulsed = CONF.get('Ktransfer2600', 'pulsed')
         if pulsed is False:
             self.comboBoxSweepType.setCurrentIndex(0)
         elif pulsed is True:
@@ -400,8 +400,8 @@ class KeithleyGuiApp(QtWidgets.QMainWindow):
         self.comboBoxDrainSMU.addItems(cmbList)
 
         try:
-            self.comboBoxGateSMU.setCurrentIndex(cmbList.index(CONF.get('Keithley', 'gate')))
-            self.comboBoxDrainSMU.setCurrentIndex(cmbList.index(CONF.get('Keithley', 'drain')))
+            self.comboBoxGateSMU.setCurrentIndex(cmbList.index(CONF.get('Ktransfer2600', 'gate')))
+            self.comboBoxDrainSMU.setCurrentIndex(cmbList.index(CONF.get('Ktransfer2600', 'drain')))
         except ValueError:
             self.comboBoxGateSMU.setCurrentIndex(0)
             self.comboBoxDrainSMU.setCurrentIndex(1)
@@ -491,7 +491,7 @@ class KeithleyAddressDialog(QtWidgets.QDialog):
     def _onAccept(self):
         # update connection settings in mercury feed
         self.keithley.visa_address = self.lineEditAddress.text()
-        CONF.set('Keithley', 'KEITHLEY_ADDRESS', self.keithley.visa_address)
+        CONF.set('Ktransfer2600', 'KEITHLEY_ADDRESS', self.keithley.visa_address)
         # reconnect to new IP address
         self.keithley.disconnect()
         self.keithley.connect()
@@ -527,7 +527,7 @@ class MeasureThread(QtCore.QThread):
 
 
 def main():
-    KEITHLEY_ADDRESS = CONF.get('Keithley', 'KEITHLEY_ADDRESS')
+    KEITHLEY_ADDRESS = CONF.get('Ktransfer2600', 'KEITHLEY_ADDRESS')
     keithley = Keithley2600(KEITHLEY_ADDRESS)
     application = QtWidgets.QApplication(sys.argv)
     keithleyGUI = KeithleyGuiApp(keithley)
