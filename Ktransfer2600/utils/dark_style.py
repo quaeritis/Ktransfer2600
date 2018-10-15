@@ -2,10 +2,8 @@
 from __future__ import division, absolute_import
 import os
 import qdarkstyle
-import pygments
 from qtpy import QtCore, QtGui
 import matplotlib as mpl
-import shutil
 
 
 if QtCore.PYQT_VERSION_STR[0] == '5':
@@ -129,33 +127,3 @@ def apply_mpl_bright_theme():
 
         canvas.draw()
 
-
-def install_pygemets_style(source_path):
-    """Installs pigments style from 'source_path' to pygments style folder."""
-    # find pygments path
-    pygments_path = os.path.dirname(pygments.__file__)
-    style_path = os.path.join(pygments_path, 'styles')
-
-    # copy customxeprdark.py to style_path
-    shutil.copy2(source_path, style_path)
-
-
-def get_console_dark_style():
-    """
-    Tries to get customxeprdark pygments sytle. if this fails, it tries to
-    install the customxeprdark style in the current pygments folder.
-    If this fails, it falls back to the 'native' pygments style.
-    """
-    try:
-        pygments.styles.get_style_by_name('ipconsoledark')
-        console_style = 'ipconsoledark'
-    except pygments.util.ClassNotFound:
-        try:
-            source_path = os.path.join(direct, 'ipconsoledark.py')
-            install_pygemets_style(source_path)
-            console_style = 'ipconsoledark'
-        except:
-            # fall back to pygments default dark style 'native'
-            console_style = 'native'
-
-    return console_style

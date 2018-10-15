@@ -22,15 +22,13 @@ setup(
         ]
     },
     install_requires=[
+        'setuptools',
         'QtPy',
         'Keithley2600',
         'matplotlib',
         'pyvisa',
-        'setuptools'
-        'Pygments',
+        'setuptools',
         'QDarkStyle',
-        'ipython',
-        'ipykernel',
         'repr',
         'spyder'
     ],
